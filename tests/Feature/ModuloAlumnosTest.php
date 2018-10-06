@@ -29,6 +29,7 @@ class ModuloAlumnosTest extends TestCase
      */
     public function lista_de_alumnos_del_grado(){
         $this -> get('/alumnos/grado-5')
+                ->assertSee('5')
                 ->assertStatus(200);
     }
     /**
@@ -36,6 +37,7 @@ class ModuloAlumnosTest extends TestCase
      */
     public function editar_un_alumno(){
         $this -> get('/alumnos/editar-5')
+                ->assertSee('5')
                 ->assertStatus(200);
     }
     /**
@@ -43,6 +45,7 @@ class ModuloAlumnosTest extends TestCase
      */
     public function ver_un_alumno(){
         $this -> get('/alumnos/ver-5')
+                ->assertSee('5')
                 ->assertStatus(200);
     }
     /**
@@ -50,6 +53,7 @@ class ModuloAlumnosTest extends TestCase
      */
     public function eliminar_un_alumno(){
         $this -> get('/alumnos/eliminar-5')
+                ->assertSee('5')
                 ->assertStatus(200);
     }
     /**

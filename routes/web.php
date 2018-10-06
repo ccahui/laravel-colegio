@@ -14,28 +14,18 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/alumnos',function(){
-    return "alumnos.html";
-});
-Route::get('/alumnos/grado-{id}',function($id){
-    return "alumnos-grado.html: {$id}";
-}) -> where('id','[1-6]');
+Route::get('/alumnos','AlumnoController@index');
 
-Route::get('/alumnos/ver-{id}',function($id){
-    return "alumnos-ver.html: {$id}";
-}) -> where('id','[0-9]+');
+Route::get('/alumnos/grado-{id}','AlumnoController@grado')
+        -> where('id','[1-6]');
 
-Route::get('/alumnos/editar-{id}',function($id){
-    return "alumnos-editar.html: {$id}";
-}) -> where('id','[0-9]+');
+Route::get('/alumnos/ver-{id}','AlumnoController@ver') -> where('id','[0-9]+');
 
-Route::get('/alumnos/eliminar-{id}',function($id){
-    return "Eliminando: {$id}";
-}) -> where('id','[0-9]+');
+Route::get('/alumnos/editar-{id}','AlumnoController@editar') -> where('id','[0-9]+');
 
-Route::get('/alumnos/crear',function(){
-    return "alumnos-crear.html";
-});
+Route::get('/alumnos/eliminar-{id}','AlumnoController@eliminar') -> where('id','[0-9]+');
+
+Route::get('/alumnos/crear','AlumnoController@crear');
 
 Route::get('/iniciar-sesion',function(){
    return "iniciar-session.html"; 
