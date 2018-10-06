@@ -7,7 +7,18 @@ use Illuminate\Http\Request;
 class AlumnoController extends Controller
 {
    public function index(){
-       return "alumnos.html";
+       $grados = [
+           'Primer Grado',
+           'Segundo Grado',
+           'Tercer Grado',
+           'Cuarto Grado',
+           'Quinto Grado',
+           'Sexto Grado'
+       ];   
+       
+       return view('index',[
+           'grados' => $grados
+       ]);
    }
    //Alumnos de un grado determinado
    public function grado($id){
