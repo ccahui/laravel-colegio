@@ -4,80 +4,26 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<html>
-    <head>
-        <title>ALUMNOS | Colegio ABC</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link  rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.css')}}">
-        <script src="{{asset('js/jquery-3.3.1.slim.min.js')}}"></script>
-        <script src="{{asset('js/popper.min.js')}}"></script>
-        <script src="{{asset('js/bootstrap.min.js')}}"></script>
-        <script src="{{asset('js/all.min.js')}}"></script>
-        
-        <style>
-            .jumb {
-                padding: 1rem 1rem;
-                margin-bottom: 1rem;
-            }
+@extends('layout')
 
-            @media (min-width: 576px) {
-                .jumb {
-                    padding: 1rem 2rem;
-                }
-            }
-        </style>
-    </head>
+@section('title','Crear Alumno')
 
-    <body>
+@section('breadcrumb')
 
-
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark" >
-
-            <a href="index.html" class="navbar-brand ml-md-3">
-                <strong> Inicio</strong>
-            </a>
-            <a href="alumnos.html" class="navbar-brand ">
-                <strong>Alumno</strong>
-            </a>
-            <a href="alumnos-crear.html" class="navbar-brand ">
-                <strong>CREAR</strong>
-            </a>
-            <button class="navbar-toggler" data-toggle="collapse" data-target="#contenidoNav3">
-                <span class="navbar-toggler-icon"></span>
-            </button>
             <!-- mr - auto Coloca todo hacia la Izquierda-->
-            <div class="collapse navbar-collapse" id="contenidoNav3">
-                <!-- ml-auto Coloca todo hacia la derecha
-                <a href="alumno-agregar.html" class="navbar-brand ">
-                    <strong>Registrar</strong>
-                </a>-->
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a href="index.html" class="nav-link active font-weight-bold">Cerrar Session <i class="fas fa-sign-out-alt"></i></a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-        <br>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-6">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
                         <li class="breadcrumb-item"><a href="alumnos.html">Alumnos</a></li>
                         <li class="breadcrumb-item active">Crear</li>
                     </ol>         
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
+@endsection
+
+@section('contenido')
                 <div class="col-md-7 col-xl-5">
                     <div class="card">
                         <div class="card-body">
                     <div class="text-center">
-                        <h3>Crear un Alumno</h3>
+                        <h3 class='font-weight-bold'>Crear un Alumno</h3>
                     </div>
                     <br>
                     <form>
@@ -128,11 +74,4 @@ and open the template in the editor.
                         </div>
                     </div>
                 </div>
-
-            </div>
-        </div>
-
-
-
-    </body>
-</html>
+@endsection

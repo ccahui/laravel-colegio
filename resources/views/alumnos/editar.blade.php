@@ -4,145 +4,80 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<html>
-    <head>
-        <title>ALUMNOS | Colegio ABC</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link  rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.css')}}">
-        <script src="{{asset('js/jquery-3.3.1.slim.min.js')}}"></script>
-        <script src="{{asset('js/popper.min.js')}}"></script>
-        <script src="{{asset('js/bootstrap.min.js')}}"></script>
-        <script src="{{asset('js/all.min.js')}}"></script>
-        
-       <style>
-            .jumb {
-                padding: 1rem 1rem;
-                margin-bottom: 1rem;
-            }
+@extends('layout')
 
-            @media (min-width: 576px) {
-                .jumb {
-                    padding: 1rem 2rem;
-                }
-            }
-        </style>
-    </head>
+@section('title','Editar Alumno 1')
 
-    <body>
+@section('breadcrumb')
+<ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+    <li class="breadcrumb-item"><a href="alumnos.html">Alumnos</a></li>
+    <li class="breadcrumb-item"><a href="alumnos-grado.html">Grado</a></li>
+    <li class="breadcrumb-item active">Editar</li>
+</ol>         
+@endsection
 
+@section('contenido')
+<div class="col-md-7 col-xl-5">
+    <div class="card">
+        <div class="card-body">
 
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark" >
+            <div class="media container">
+                <div class="row align-items-center">
 
-            <a href="index.html" class="navbar-brand ml-md-3">
-                <strong> Inicio</strong>
-            </a>
-            <a href="alumnos.html" class="navbar-brand ">
-                <strong>Alumno</strong>
-            </a>
-            <a href="alumnos-grado.html" class="navbar-brand ">
-                <strong>Grado</strong>
-            </a>
-            <a href="alumnos-editar.html" class="navbar-brand ">
-                <strong>EDITAR</strong>
-            </a>
-            <button class="navbar-toggler" data-toggle="collapse" data-target="#contenidoNav3">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <!-- mr - auto Coloca todo hacia la Izquierda-->
-            <div class="collapse navbar-collapse" id="contenidoNav3">
-                <!-- ml-auto Coloca todo hacia la derecha
-                <a href="alumno-agregar.html" class="navbar-brand ">
-                    <strong>Registrar</strong>
-                </a>-->
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a href="index.html" class="nav-link active font-weight-bold">Cerrar Session <i class="fas fa-sign-out-alt"></i></a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-        <br>
-        <div class="container-fluid">
-            <div class="row">
-            <div class="col-md-6">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
-                    <li class="breadcrumb-item"><a href="alumnos.html">Alumnos</a></li>
-                    <li class="breadcrumb-item"><a href="alumnos-grado.html">Grado</a></li>
-                    <li class="breadcrumb-item active">Editar</li>
-                </ol>         
-            </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-7 col-xl-5">
-                    <div class="card">
-                        <div class="card-body">
-                            
-                            <div class="media container">
-                                <div class="row align-items-center">
-                                    
-                                 <img src="{{asset('images/foto.jpg')}}" class="thumbnail  mr-3 align-self-center" style='width:120px' >
-                                    <div class="media-body ml-3">
-                                        <h3>Editar Alumno</h3>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                                <br>
-                                <form>
-                                    <div class="form-group form-row">
-                                        <label class="col-sm-3 col-form-label"> DNI</label>
-                                        <div class="col-sm-9"> 
-                                            <input placeholder="Ingrese el DNI" class="form-control" value="712353535">
-                                        </div>
-                                    </div>
-                                    <div class="form-group form-row">
-                                        <label class="col-sm-3 col-form-label">Nombre</label>
-                                        <div class="col-sm-9"> 
-                                            <input placeholder="Ingrese los nombre completos" class="form-control" value="anonimo">
-                                        </div>
-                                    </div>
-                                    <div class="form-group form-row">
-                                        <label class="col-sm-3 col-form-label">Apellidos</label>
-                                        <div class="col-sm-9"> 
-                                            <input placeholder="Ingrese los apellidos" class="form-control" value="anonimo">
-                                        </div>
-                                    </div>
-                                    <div class="form-group form-row">
-                                        <label class="col-sm-3 col-form-label">Edad</label>
-                                        <div class="col-sm-9"> 
-                                            <input placeholder="Ingrese su gmail" class="form-control" value="x">
-                                        </div>
-                                    </div>
-                                    <div class="form-group form-row">
-                                        <label class="col-sm-3 col-form-label">Grado</label>
-                                        <div class="col-sm-9">
-                                            <select class="form-control">
-                                                <option>Primer Grado</option>
-                                                <option>Segundo Grado</option>
-                                                <option selected>Tercer Grado</option>
-                                                <option>Cuarto Grado</option>
-                                                <option>Quinto Grado</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="btn-group    w-100 form-row">
-                                        <a href="alumnos-grado.html" class="btn btn-outline-danger btn-group col-sm-6 d-inline-block text-center"> Cancelar </a>
-                                        <a href="alumnos-grado.html" class="btn btn-outline-primary btn-group col-sm-6 d-inline-block text-center" id='confirmar'> Guardar <i class="fas fa-save"></i></a>
-                                    </div>
-                                   
-                                </form>
-                            </div>
-                        </div>  
+                    <img src="{{asset('images/foto.jpg')}}" class="thumbnail  mr-3 align-self-center" style='width:120px' >
+                    <div class="media-body ml-3">
+                        <h3>Editar Alumno</h3>
                     </div>
-
                 </div>
             </div>
 
+            <br>
+            <form>
+                <div class="form-group form-row">
+                    <label class="col-sm-3 col-form-label"> DNI</label>
+                    <div class="col-sm-9"> 
+                        <input placeholder="Ingrese el DNI" class="form-control" value="712353535">
+                    </div>
+                </div>
+                <div class="form-group form-row">
+                    <label class="col-sm-3 col-form-label">Nombre</label>
+                    <div class="col-sm-9"> 
+                        <input placeholder="Ingrese los nombre completos" class="form-control" value="anonimo">
+                    </div>
+                </div>
+                <div class="form-group form-row">
+                    <label class="col-sm-3 col-form-label">Apellidos</label>
+                    <div class="col-sm-9"> 
+                        <input placeholder="Ingrese los apellidos" class="form-control" value="anonimo">
+                    </div>
+                </div>
+                <div class="form-group form-row">
+                    <label class="col-sm-3 col-form-label">Edad</label>
+                    <div class="col-sm-9"> 
+                        <input placeholder="Ingrese su gmail" class="form-control" value="x">
+                    </div>
+                </div>
+                <div class="form-group form-row">
+                    <label class="col-sm-3 col-form-label">Grado</label>
+                    <div class="col-sm-9">
+                        <select class="form-control">
+                            <option>Primer Grado</option>
+                            <option>Segundo Grado</option>
+                            <option selected>Tercer Grado</option>
+                            <option>Cuarto Grado</option>
+                            <option>Quinto Grado</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="btn-group    w-100 form-row">
+                    <a href="alumnos-grado.html" class="btn btn-outline-danger btn-group col-sm-6 d-inline-block text-center"> Cancelar </a>
+                    <a href="alumnos-grado.html" class="btn btn-outline-primary btn-group col-sm-6 d-inline-block text-center" id='confirmar'> Guardar <i class="fas fa-save"></i></a>
+                </div>
 
+            </form>
+        </div>
+    </div>  
+</div>
 
-    </body>
-</html>
+@endsection

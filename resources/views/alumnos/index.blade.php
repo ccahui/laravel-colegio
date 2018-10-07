@@ -6,7 +6,7 @@ and open the template in the editor.
 -->
 @extends('layout')
 
-@section('title','Alumnos')
+@section('title','Alumnos Por Grados')
 
 @section('breadcrumb')
     <ol class="breadcrumb">
@@ -19,7 +19,8 @@ and open the template in the editor.
 @section('titulo','Listado de Grados del Colegio')
 
 @section('contenido')
-    @if( !empty($grados) )
+ <div class="col-sm-10 col-md-6 col-xl-5">   
+@if( !empty($grados) )
         <div class="btn-group btn-group-vertical btn-block">
         @foreach($grados as $grado)
             <a href= 'alumnos/grado-1' class="btn btn-outline-dark "> {{ $grado }} </a>    
@@ -28,4 +29,5 @@ and open the template in the editor.
     @else
         <h6>No hay Grados Registrados</h6>
     @endif
+ </div>
 @endsection

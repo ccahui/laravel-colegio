@@ -14,11 +14,10 @@ and open the template in the editor.
         <script src="{{asset('js/popper.min.js')}}"></script>
         <script src="{{asset('js/bootstrap.min.js')}}"></script>
         <script src="{{asset('js/all.min.js')}}"></script>
-        
+        @yield('css-script')
         <style>
             .jumb {
-                padding: 1rem 1rem;
-            }
+                margin-bottom:1rem 
         </style>
     </head>
 
@@ -30,7 +29,7 @@ and open the template in the editor.
             <a href="index.html" class="navbar-brand ml-md-3">
                 <strong> Inicio</strong>
             </a>
-            <a href="alumnos.html" class="navbar-brand ">
+            <a href="alumnos.html" class="navbar-brand">
                 <strong>ALUMNO</strong>
             </a>
             <button class="navbar-toggler" data-toggle="collapse" data-target="#contenidoNav3">
@@ -61,9 +60,7 @@ and open the template in the editor.
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-10 col-md-6 col-xl-5">
                         @yield('contenido')
-                    </div>
                 </div>
             </div>
             <br>
