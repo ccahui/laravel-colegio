@@ -15,26 +15,26 @@ class AlumnoController extends Controller
            'Quinto Grado',
            'Sexto Grado'
        ];   
-       
-       return view('index',[
+       //$grados = []
+       return view('alumnos.index',[
            'grados' => $grados
        ]);
    }
    //Alumnos de un grado determinado
    public function grado($id){
-       return "alumnos-grado.html: {$id}";
+       return view('alumnos.grado');
    }
    
    public function ver($id){
-        return "alumnos-ver.html: {$id}";
+        return view('alumnos.ver');
    }
    public function editar($id){
-          return "alumnos-editar.html: {$id}";
+          return view('alumnos.editar');
    }
    public function eliminar($id){
          return "Eliminando: {$id}";
    }
    public function crear(){
-        return "alumnos-crear.html";
+        return view('alumnos.crear');
    }
 }

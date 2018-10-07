@@ -21,7 +21,7 @@ function alumnoControl($scope, $http) {
     
     $http({
         method: 'GET',
-        url: 'alumnos.json'
+        url: "../alumnos.json"
     }).then(function (response) {
         $scope.alumnos = response.data.alumnos;
     }, function (response) {
