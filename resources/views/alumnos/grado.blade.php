@@ -76,7 +76,7 @@ and open the template in the editor.
                     <h2 class="font-weight-bold">Alumnos de Grado X</h2>
                     
                     <button class='btn btn-outline-primary' id='seleccionar'>Seleccionar Todo</button>
-                    <a href='alumnos-grado.html' class='btn btn-outline-danger' id='borrar'>Borrar</a>
+                    <a href='' class='btn btn-outline-danger' id='borrar'>Borrar</a>
                     <button class="btn btn-outline-secondary" id="cancelar">Cancelar</button>
                 </div>
             </div>
@@ -85,7 +85,6 @@ and open the template in the editor.
                     <table class="table">
                         <thead class='thead-light'>
                             <tr>
-                                
                                 <th><span ng-click="ordenar = 'id'; reverso = !reverso">Codigo</span></th>
                                 <th ng-click="ordenar = 'nombre'; reverso = !reverso">Nombre</th>
                                 <th ng-click="ordenar = 'apellidos'; reverso = !reverso">Apellido</th>
@@ -96,13 +95,14 @@ and open the template in the editor.
 
                             <tr ng-repeat="alumno in alumnos | orderBy:ordenar:reverso">
 
-                                <td><input type='checkbox' class='checkbox' name='borrarElementos' ng-bind='alumno.id'></td>
+                                <td><input type='checkbox' class='checkbox' name='borrarElementos'> <span ng-bind='alumno.id'> </span></td>
                                 <td ng-bind='alumno.nombre'></td>
                                 <td ng-bind='alumno.apellidos'></td>
                                 <td>
-                                    <a href='ver.blade.html' class='btn btn-link py-0'>Ver <i class="fas fa-eye"></i> </a>
-                                    <a href='alumnos-editar.html' class='btn btn-link py-0 text-info'>Editar <i class="fas fa-edit"> </i></a>
-                                    <a href="alumnos-grado.html" class="btn btn-link py-0 text-danger confirmar" ng-click="confirmar()">Eliminar <i class="fas fa-trash-alt"></i></a>
+                                    
+                                    <a href='ver-1' class='btn btn-link py-0'>Ver <i class="fas fa-eye"></i> </a>
+                                    <a href='editar-1' class='btn btn-link py-0 text-info'>Editar <i class="fas fa-edit"> </i></a>
+                                    <a href="" class="btn btn-link py-0 text-danger confirmar" ng-click="confirmar()">Eliminar <i class="fas fa-trash-alt"></i></a>
                                 </td>   
                             </tr>
 
