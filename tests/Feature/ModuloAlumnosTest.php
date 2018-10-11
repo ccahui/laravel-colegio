@@ -29,7 +29,6 @@ class ModuloAlumnosTest extends TestCase
      */
     public function lista_de_alumnos_del_grado(){
         $this -> get('/alumnos/grado-5')
-                ->assertSee('5')
                 ->assertStatus(200);
     }
     /**
