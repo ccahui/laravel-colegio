@@ -12,9 +12,11 @@ class DatabaseSeeder extends Seeder {
     public function run() {
 
         $this->truncateTables([
-            'grados'
+            'grados',
+            'alumnos'
         ]);
         $this->call(GradoSeeder::class);
+        $this->call(AlumnoSeeder::class);
     }
 
     public function truncateTables(array $tables) {

@@ -15,9 +15,9 @@ class CreateAlumnosTable extends Migration
     {
         Schema::create('alumnos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombres');
-            $table->string('apellidos');
-            $table->integer('grado_id')->unsigned();
+            $table->string('nombre');
+            $table->string('apellido');
+            $table->integer('grado_id')->unsigned()->nullable();
             $table->foreign('grado_id')->references('id')->on('grados');
             
             $table->timestamps();

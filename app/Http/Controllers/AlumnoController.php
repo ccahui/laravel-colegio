@@ -3,19 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Grado;
 class AlumnoController extends Controller
 {
    public function index(){
-       $grados = [
-           'Primer Grado',
-           'Segundo Grado',
-           'Tercer Grado',
-           'Cuarto Grado',
-           'Quinto Grado',
-           'Sexto Grado'
-       ];   
-       //$grados = []
+       $grados = Grado::all();
        return view('alumnos.index',[
            'grados' => $grados
        ]);

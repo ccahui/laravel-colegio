@@ -20,10 +20,10 @@ and open the template in the editor.
 
 @section('contenido')
  <div class="col-sm-10 col-md-6 col-xl-5">   
-@if( !empty($grados) )
+    @if(!empty($grados) && !$grados->isEmpty())
         <div class="btn-group btn-group-vertical btn-block">
         @foreach($grados as $grado)
-            <a href= 'alumnos/grado-1' class="btn btn-outline-dark "> {{ $grado }} </a>    
+            <a href= 'alumnos/grado-1' class="btn btn-outline-dark text-capitalize"> {{ $grado->descripcion}} </a>    
         @endforeach
         </div>
     @else

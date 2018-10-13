@@ -5,9 +5,12 @@ namespace Tests\Feature;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-
+use App\Models\Grado;
+use App\User;
 class ModuloAlumnosTest extends TestCase
 {
+    
+    use RefreshDatabase;
     /**
      * A basic test example.
      *
@@ -21,8 +24,25 @@ class ModuloAlumnosTest extends TestCase
      * @test
      */
     public function lista_de_grados(){
+        
+        Grado::create([
+            'descripcion'=>'primer grado'
+        ]);
+        Grado::create([
+            'descripcion'=>'segundo grado'
+        ]);
         $this -> get('/alumnos')
-                ->assertStatus(200);
+                ->assertStatus(200)
+                ->assertSee('primer grado')
+                ->assertSee('segundo grado');
+    }
+    /**
+     * @test
+     */
+    public function lista_de_grados_vacia(){
+        $this->get('/alumnos')
+                ->assertStatus(200)
+                ->assertSee('No hay Grados Registrados');
     }
     /**
      * @test
