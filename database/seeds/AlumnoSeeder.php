@@ -30,10 +30,6 @@ class AlumnoSeeder extends Seeder
             'apellido'=>'Ccahui', 
             'grado_id'=>$gradoId
         ]);
-      
-      for( $i=0;$i<60;$i++){
-      factory(Alumno::class)->create([
-          'grado_id'=>rand(1,5)
-      ]);
-    }}
+      factory(Alumno::class,60)->create();
+    }
 }

@@ -6,7 +6,7 @@ use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\Models\Grado;
-use App\User;
+use App\Models\Alumno;
 class ModuloAlumnosTest extends TestCase
 {
     
@@ -48,9 +48,32 @@ class ModuloAlumnosTest extends TestCase
      * @test
      */
     public function lista_de_alumnos_del_grado(){
-        $this -> get('/alumnos/grado-5')
-                ->assertStatus(200);
+        $grado = Grado::create([
+            'descripcion'=>'primer grado'
+        ]);
+        
+        $alumno = factory(Alumno::class)->create([
+            'nombre'=>'Kristian J',
+            'grado_id'=>$grado->id
+        ]);
+        
+        $this -> get('/alumnos/grado-'.$grado->id)
+                ->assertStatus(200)
+                ->assertSee('primer grado')
+                ->assertSee('Kristian J');
     }
+    /**
+     * @test
+     */
+     public function lista_de_alumnos_del_grado_vacio(){
+         $grado = Grado::create([
+             'descripcion'=>'primer grado'
+         ]);
+         $this -> get('/alumnos/grado-'.$grado->id)
+                ->assertStatus(200)
+                ->assertSee('primer grado')
+                ->assertSee('No hay alumnos registrados');
+     }
     /**
      * @test
      */
