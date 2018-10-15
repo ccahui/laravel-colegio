@@ -6,13 +6,13 @@ and open the template in the editor.
 -->
 @extends('layout')
 
-@section('title','Editar Alumno 1')
+@section('title',"Editar Alumno $alumno->id")
 
 @section('breadcrumb')
 <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
-    <li class="breadcrumb-item"><a href="alumnos.html">Alumnos</a></li>
-    <li class="breadcrumb-item"><a href="alumnos-grado.html">Grado</a></li>
+    <li class="breadcrumb-item"><a href="{{ route('alumnos.index')}}">Alumnos</a></li>
+    <li class="breadcrumb-item"><a href="{{ route('alumnos.grado',['id'=> $alumno->grado_id])}}">Grado</a></li>
     <li class="breadcrumb-item active">Editar</li>
 </ol>         
 @endsection
@@ -35,44 +35,34 @@ and open the template in the editor.
             <br>
             <form>
                 <div class="form-group form-row">
-                    <label class="col-sm-3 col-form-label"> DNI</label>
-                    <div class="col-sm-9"> 
-                        <input placeholder="Ingrese el DNI" class="form-control" value="712353535">
-                    </div>
-                </div>
-                <div class="form-group form-row">
                     <label class="col-sm-3 col-form-label">Nombre</label>
                     <div class="col-sm-9"> 
-                        <input placeholder="Ingrese los nombre completos" class="form-control" value="anonimo">
+                        <input placeholder="Ingrese los nombre completos" class="form-control" value="{{ $alumno->nombre }}" name='nombre'>
                     </div>
                 </div>
                 <div class="form-group form-row">
                     <label class="col-sm-3 col-form-label">Apellidos</label>
                     <div class="col-sm-9"> 
-                        <input placeholder="Ingrese los apellidos" class="form-control" value="anonimo">
-                    </div>
-                </div>
-                <div class="form-group form-row">
-                    <label class="col-sm-3 col-form-label">Edad</label>
-                    <div class="col-sm-9"> 
-                        <input placeholder="Ingrese su gmail" class="form-control" value="x">
+                        <input placeholder="Ingrese los apellidos" class="form-control" value="{{ $alumno->apellido }}" name="apellido">
                     </div>
                 </div>
                 <div class="form-group form-row">
                     <label class="col-sm-3 col-form-label">Grado</label>
                     <div class="col-sm-9">
                         <select class="form-control">
-                            <option>Primer Grado</option>
-                            <option>Segundo Grado</option>
-                            <option selected>Tercer Grado</option>
-                            <option>Cuarto Grado</option>
-                            <option>Quinto Grado</option>
+                            @foreach($grados as $grado)
+                                @if($grado->id == $alumno->grado_id)
+                                
+                                <option selected="" value="{{ $grado->id }}">{{$grado->descripcion}}</option>
+                                @else <option value="{{ $grado->id }}">{{$grado->descripcion}}</option>
+                                @endif
+                           @endforeach
                         </select>
                     </div>
                 </div>
                 <div class="btn-group    w-100 form-row">
-                    <a href="alumnos-grado.html" class="btn btn-outline-danger btn-group col-sm-6 d-inline-block text-center"> Cancelar </a>
-                    <a href="alumnos-grado.html" class="btn btn-outline-primary btn-group col-sm-6 d-inline-block text-center" id='confirmar'> Guardar <i class="fas fa-save"></i></a>
+                    <a href="{{ route('alumnos.grado',['id'=> $alumno->grado_id])}}" class="btn btn-outline-danger btn-group col-sm-6 d-inline-block text-center"> Cancelar </a>
+                    <a href="{{ route('alumnos.grado',['id'=> $alumno->grado_id])}}" class="btn btn-outline-primary btn-group col-sm-6 d-inline-block text-center" id='confirmar'> Guardar <i class="fas fa-save"></i></a>
                 </div>
 
             </form>

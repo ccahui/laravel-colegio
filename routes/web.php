@@ -14,19 +14,26 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/alumnos','AlumnoController@index');
+Route::get('/alumnos','AlumnoController@index')
+        ->name('alumnos.index');
 
 Route::get('/alumnos/grado-{id}','AlumnoController@grado')
-        -> where('id','[1-6]');
+        -> where('id','[1-6]')
+        ->name('alumnos.grado');
 
-Route::get('/alumnos/ver-{id}','AlumnoController@ver') -> where('id','[0-9]+');
+Route::get('/alumnos/ver-{id}','AlumnoController@ver') 
+        -> where('id','[0-9]+')
+        ->name('alumnos.ver');
 
-Route::get('/alumnos/editar-{id}','AlumnoController@editar') -> where('id','[0-9]+');
+Route::get('/alumnos/editar-{id}','AlumnoController@editar') -> 
+        where('id','[0-9]+')
+        ->name('alumnos.editar');
 
-Route::get('/alumnos/eliminar-{id}','AlumnoController@eliminar') -> where('id','[0-9]+');
+Route::get('/alumnos/eliminar-{id}','AlumnoController@eliminar') 
+        -> where('id','[0-9]+')
+        ->name('alumnos.eliminar');
 
-Route::get('/alumnos/crear','AlumnoController@crear');
+Route::get('/alumnos/crear','AlumnoController@crear')
+        ->name('alumnos.crear');
 
-Route::get('/iniciar-sesion',function(){
-   return "iniciar-session.html"; 
-});
+Route::post('/alumnos/crear','AlumnoController@crearPost');

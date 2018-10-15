@@ -16,8 +16,8 @@ and open the template in the editor.
 
 @section('breadcrumb')
 <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
-    <li class="breadcrumb-item"><a href="alumnos.html">Alumnos</a></li>
+    <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+    <li class="breadcrumb-item"><a href="{{ route('alumnos.index') }}">Alumnos</a></li>
     <li class="breadcrumb-item active">Grado</li>
 </ol>         
 @endsection
@@ -56,8 +56,8 @@ and open the template in the editor.
                             <td>{{$alumno->apellido}}</td>
                             <td>
 
-                                <a href='ver-1' class='btn btn-link py-0'>Ver <i class="fas fa-eye"></i> </a>
-                                <a href='editar-1' class='btn btn-link py-0 text-info'>Editar <i class="fas fa-edit"> </i></a>
+                                <a href="{{ route('alumnos.ver',['id' => $alumno->id])}}" class='btn btn-link py-0'>Ver <i class="fas fa-eye"></i> </a>
+                                <a href="{{ route('alumnos.editar',['id' => $alumno->id])}}" class='btn btn-link py-0 text-info'>Editar <i class="fas fa-edit"> </i></a>
                                 <a href="" class="btn btn-link py-0 text-danger confirmar" ng-click="confirmar()">Eliminar <i class="fas fa-trash-alt"></i></a>
                             </td>   
                         </tr>

@@ -13,7 +13,7 @@ and open the template in the editor.
         <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
         <li class="breadcrumb-item active">Alumnos</li>
     </ol>
-    <h5 class="mx-2"><a href="alumnos/crear"><i class="fas fa-plus-circle icono"></i> Crear Alumno </a></h5>
+    <h5 class="mx-2"><a href="{{ route('alumnos.crear')}}"><i class="fas fa-plus-circle icono"></i> Crear Alumno </a></h5>
 @endsection
 
 @section('titulo','Listado de Grados del Colegio')
@@ -23,7 +23,7 @@ and open the template in the editor.
     @if(!empty($grados) && !$grados->isEmpty())
         <div class="btn-group btn-group-vertical btn-block">
         @foreach($grados as $grado)
-            <a href= 'alumnos/grado-1' class="btn btn-outline-dark text-capitalize"> {{ $grado->descripcion}} </a>    
+        <a href= "{{ route('alumnos.grado',['id' => $grado->id])}}" class="btn btn-outline-dark text-capitalize"> {{ $grado->descripcion}} </a>    
         @endforeach
         </div>
     @else

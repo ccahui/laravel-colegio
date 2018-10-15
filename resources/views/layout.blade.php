@@ -29,8 +29,11 @@ and open the template in the editor.
             <a href="index.html" class="navbar-brand ml-md-3">
                 <strong> Inicio</strong>
             </a>
-            <a href="alumnos.html" class="navbar-brand">
+            <a href="{{ route('alumnos.index')}}" class="navbar-brand">
                 <strong>ALUMNO</strong>
+            </a>
+            <a href="{{ route('alumnos.crear')}}" class="navbar-brand">
+                <strong>CREAR ALUMNO</strong>
             </a>
             <button class="navbar-toggler" data-toggle="collapse" data-target="#contenidoNav3">
                 <span class="navbar-toggler-icon"></span>
